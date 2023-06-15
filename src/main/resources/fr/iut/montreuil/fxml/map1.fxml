@@ -148,7 +148,7 @@
                              <graphic>
                                  <ImageView fx:id="b4" pickOnBounds="true" preserveRatio="true">
                                      <image>
-                                         <Image url="@../image/Link.png" />
+                                         <Image url="@../image/poubelle.png" />
                                      </image>
                                  </ImageView>
                              </graphic>

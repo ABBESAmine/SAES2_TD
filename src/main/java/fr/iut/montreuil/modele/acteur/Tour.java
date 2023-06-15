@@ -53,9 +53,6 @@ public  class Tour {
     }
 
 
-
-
-
     public final int getX() {
         return this.x;
     }
@@ -64,8 +61,6 @@ public  class Tour {
 
         return this.img.getId();
     }
-
-
     public final int getY() {
         return this.y;
     }
@@ -78,11 +73,9 @@ public  class Tour {
         return portee;
     }
 
-
     public int getType() {
         return type;
     }
-
     public String getId() {
         return this.id;
     }

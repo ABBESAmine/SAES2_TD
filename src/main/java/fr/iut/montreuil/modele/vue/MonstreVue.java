@@ -28,9 +28,6 @@ public class MonstreVue {
     private ArrayList<ProgressBar> ListBarre;
 
 
-
-
-
     private BorderPane bord;
 
     private Pane pane;

@@ -24,15 +24,12 @@ import java.util.ArrayList;
 
 public class Modele {
 
+    //Lists
     private ObservableList<Soldat> ListActeurs;
-    //private ArrayList<Tour> ListTours;
-
-
-
-    private IntegerProperty difficulte;
-
     private ObservableList<Tour> ListTours;
     private ArrayList<Circle> listCercle;
+
+    private IntegerProperty difficulte;
 
 
 
@@ -148,6 +145,7 @@ public class Modele {
                 act = ListActeurs.get(i);
                 if (act.getTileValue() == 10){
                     j.subitDegat(ListActeurs.get(i).getValeur());
+                    System.out.println("PV fin : "+ListActeurs.get(i).getPointsDeVieValue());
                     ListActeurs.remove(ListActeurs.get(i));
                 }
             }

@@ -14,9 +14,7 @@ public class Joueur {
 
 
 
-    public IntegerProperty getArgentProperty(){
-        return argent;
-    }
+
 
     public IntegerProperty getPvProperty(){
         return pv;
@@ -66,6 +64,11 @@ public class Joueur {
             setArgent(getArgent()+75);
         }
 
+    }
+
+
+    public IntegerProperty getArgentProperty(){
+        return argent;
     }
 
 }

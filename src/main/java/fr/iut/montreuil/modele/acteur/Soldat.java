@@ -65,36 +65,29 @@ public class Soldat {
         int xTile = xSprite/40;
         int yTile = ySprite/40;
 
-        //System.out.println("X:"+this.getX0Value()+"\nY:"+this.getY0Value());
         if (ram_map[xTile+1+(yTile*20)] != 1 && ram_map[xTile+1+(yTile*20)] != 9 && previous != 4){
             this.setX0(this.getX0Value()+40);
-            //System.out.println("1 X:"+this.getX0Value()+"\nY:"+this.getY0Value());
             previous = 1;
         }
         else if (ram_map[xTile+((yTile-1)*20)] != 1 && ram_map[xTile+((yTile-1)*20)] != 9 && previous != 3){
             //sld.setX0(sld.getY0Value()-40);
             this.setY0(this.getY0Value()-40);
-            //System.out.println("2 X:"+this.getX0Value()+"\nY:"+this.getY0Value());
+
             previous = 2;
         }
         else if (ram_map[xTile+((yTile+1)*20)] != 1 && ram_map[xTile+((yTile+1)*20)] != 9 && previous != 2){
             this.setY0(this.getY0Value()+40);
-            //sld.setX0(sld.getY0Value()+40);
-            //System.out.println("3 X:"+this.getX0Value()+"\nY:"+this.getY0Value());
             previous = 3;
         }
         else if (ram_map[xTile-1+(yTile*20)] != 1 && ram_map[xTile-1+(yTile*20)] != 9 && previous != 1){
             this.setX0(this.getX0Value()-40);
-            //sld.setX0(sld.getX0Value()-40);
-            //System.out.println("4 X:"+this.getX0Value()+"\nY:"+this.getY0Value());
             previous = 4;
         }
     }
 
 
 
-    // Getters
-    // x0
+    // Get et set
     public int getX0Value() { return this.X0.getValue(); }      // Valeur x0
     public IntegerProperty getX0Property() { return this.X0; }  // Property x0
 
@@ -102,42 +95,18 @@ public class Soldat {
     public int getY0Value() { return this.Y0.getValue(); }      // Valeur y0
     public IntegerProperty getY0Property() { return this.Y0; }  // Property y0
 
-
-    // Setters
-    // x0
     public void setX0(int val) {
         this.X0.setValue(val);
 
     }
-
-    // y0
     public void setY0(double val) { this.Y0.setValue(val); }
-
     public int getValeur() {
         return valeur;
     }
-
-
     public int getPointsDeVieValue() { return this.pointsDeVie.getValue(); }
     public IntegerProperty getPointsDeVieProperty() { return this.pointsDeVie; }
-
-    // vitesse
     public int getVitesse() { return this.vitesse; }
-
-
-
-
-
-
-    // Setters
-    // Points De Vie
     public void setPointsDeVieValue(int val) { this.pointsDeVie.setValue(val); }
-
-
-
-
-
-
     public  int getTileValue() {
         int xTile = this.getX0Value()/40;
         int yTile = this.getY0Value()/40;
@@ -145,7 +114,6 @@ public class Soldat {
 
         return ram_map[xTile+(yTile*20)];
     }
-
     public String getId() {
         return this.id;
     }

@@ -76,7 +76,6 @@ public class ControllerDefaite implements Initializable {
 
             Stage stage1 = new Stage();
             stage1.setScene(scene);
-            //stage.setResizable(false);
             stage1.show();
         });
 

@@ -21,12 +21,11 @@ public class ControllerHome implements Initializable {
 
     @FXML
     private Pane pane2;
-
     @FXML
     private Button startButton;
 
-    private String musicFile;
 
+    private String musicFile;
     private Media sound;
     private MediaPlayer mediaPlayer;
 

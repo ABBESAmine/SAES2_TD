@@ -32,32 +32,54 @@ import javafx.event.EventHandler;
 public class Controller implements Initializable {
 
 
+    //FXML variables :
     @FXML
     public Label labelInstruction;
-    private DoubleProperty mouseX;
-    private DoubleProperty mouseY;
     @FXML
     private TilePane tilemap;
-
-
-    private int tourDejaPose = 0;
-    private Timeline gameLoop;
-
-    private MonstreVue monstreVue;
-
-    private int temps = 0;
-
-
     @FXML
     private Button startButton;
 
     @FXML
     private Button buttonAddDefense3;
-
     @FXML
     private Button suppTour;
+    @FXML
+    private BorderPane bord;
+    @FXML
+    private Label labelArgent;
+
+    @FXML
+    private Label labelPv;
+
+    @FXML
+    private Label labelDiff;
+
+    @FXML
+    private Pane centerPane;
 
 
+    //Autre variables :
+    private DoubleProperty mouseX;
+    private DoubleProperty mouseY;
+    private int tourDejaPose = 0;
+    private Timeline gameLoop;
+    private MonstreVue monstreVue;
+    private int temps = 0;
+    private int valButtonDef;
+    private Modele envi;
+
+    private ListObsEnnemis listen1;
+    private ListObsTour listen2;
+
+    private int type;
+    private Joueur j;
+
+
+
+
+
+    //FXML methodes :
     @FXML
     public void suppTourButton(ActionEvent actionEvent) {
         labelInstruction.setText("Cliquer sur un allié  pour le supprimer !");
@@ -75,9 +97,6 @@ public class Controller implements Initializable {
             }
         });
     }
-
-    @FXML
-    private BorderPane bord;
     @FXML
     void startClique(ActionEvent event) {
         initAnimation();
@@ -85,38 +104,14 @@ public class Controller implements Initializable {
         gameLoop.play();
         labelInstruction.setText("Défendez le royaume d'Hyrule !!");
     }
-
     @FXML
     void pauseClique(ActionEvent event) {
         gameLoop.pause();
         startButton.setDisable(false);
     }
 
-    private int valButtonDef;
 
 
-    private Modele envi;
-
-    @FXML
-    private Label labelArgent;
-
-    @FXML
-    private Label labelPv;
-
-    @FXML
-    private Label labelDiff;
-
-    @FXML
-    private Pane centerPane;
-
-    private ListObsEnnemis listen1;
-    private ListObsTour listen2;
-
-
-
-    private int type;
-
-    private Joueur j;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -192,6 +187,7 @@ public class Controller implements Initializable {
 
                         if(envi.ennemiEnVie() && temps > 10){
                             System.out.println("plus d'ennemi");
+                            labelInstruction.setText("Préparez-vous pour la prochaine vague !");
                             if(envi.getDifficulte() == 10){
                                 envi.victoire(startButton);
                             }
