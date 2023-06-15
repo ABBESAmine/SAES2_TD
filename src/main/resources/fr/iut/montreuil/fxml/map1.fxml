@@ -30,30 +30,35 @@
               <Insets right="10.0"/>
           </padding>
           <HBox>
-              <children>
-                  <ImageView>
-                      <image>
-                          <Image url="@../image/piece.png" />
-                      </image>
-                  </ImageView>
-                  <Label fx:id="labelArgent" />
-              </children>
-          </HBox>
-          <HBox>
-              <children>
-                  <ImageView>
-                      <image>
-                          <Image url="@../image/coeur.png" />
-                      </image>
-                  </ImageView>
-                  <Label fx:id="labelPv" />
-              </children>
-          </HBox>
-          <HBox>
-              <children>
-                  <Label text="Difficulté : " />
-                  <Label fx:id="labelDiff" />
-              </children>
+              <VBox>
+
+                  <HBox>
+                      <children>
+                          <ImageView>
+                              <image>
+                                  <Image url="@../image/piece.png" />
+                              </image>
+                          </ImageView>
+                          <Label fx:id="labelArgent" />
+                      </children>
+                  </HBox>
+                  <HBox>
+                      <children>
+                          <ImageView>
+                              <image>
+                                  <Image url="@../image/coeur.png" />
+                              </image>
+                          </ImageView>
+                          <Label fx:id="labelPv" />
+                      </children>
+                  </HBox>
+                  <HBox>
+                      <children>
+                          <Label text="Difficulté : " />
+                          <Label fx:id="labelDiff" />
+                      </children>
+                  </HBox>
+              </VBox>
           </HBox>
 
           <Separator prefHeight="20" />
@@ -78,8 +83,6 @@
                       </ImageView>
                   </graphic>
               </Button>
-              <Button fx:id="suppTour" text="Cliquez-moi" onAction="#suppTourButton" />
-
               <HBox.margin>
                   <Insets left="10" right="10" />
               </HBox.margin>
@@ -89,55 +92,70 @@
 
          <VBox alignment="CENTER">
              <Label text="Utilisez vos alliés :" style="-fx-padding: 0 0 15px 0;"/>
-             <HBox>
+             <VBox>
+                 <HBox>
+                     <children>
+                         <VBox>
+                             <Button mnemonicParsing="false" text="" textOverrun="CLIP" fx:id="buttonAddDefense1" onAction="#ajoutDefense1">
+                                 <graphic>
+                                     <ImageView fx:id="b1" pickOnBounds="true" preserveRatio="true">
+                                         <image>
+                                             <Image url="@../image/villageoisTour.png" />
+                                         </image>
+                                     </ImageView>
+                                 </graphic>
+                             </Button>
+                             <VBox>
+                                 <Label text="Prix : 50" />
+                                 <Label text="Degat : 5" />
+                             </VBox>
+                         </VBox>
+                         <VBox>
+                             <Button mnemonicParsing="false" text="" textOverrun="CLIP" fx:id="buttonAddDefense2" onAction="#ajoutDefense2">
+                                 <graphic>
+                                     <ImageView fx:id="b2" pickOnBounds="true" preserveRatio="true">
+                                         <image>
+                                             <Image url="@../image/Sidon.png" />
+                                         </image>
+                                     </ImageView>
+                                 </graphic>
+                             </Button>
+                             <VBox>
+                                 <Label text="Prix : 100" />
+                                 <Label text="Degat : 10" />
+                             </VBox>
+                         </VBox>
+                         <VBox>
+                             <Button mnemonicParsing="false" text="" textOverrun="CLIP" fx:id="buttonAddDefense3" onAction="#ajoutDefense3">
+                                 <graphic>
+                                     <ImageView fx:id="b3" pickOnBounds="true" preserveRatio="true">
+                                         <image>
+                                             <Image url="@../image/Link.png" />
+                                         </image>
+                                     </ImageView>
+                                 </graphic>
+                             </Button>
+                             <VBox>
+                                 <Label text="Prix : 150" />
+                                 <Label text="Degat : 20" />
+                             </VBox>
+                         </VBox>
+                     </children>
+                 </HBox>
                  <children>
-                     <VBox>
-                         <Button mnemonicParsing="false" text="" textOverrun="CLIP" fx:id="buttonAddDefense1" onAction="#ajoutDefense1">
+                     <VBox alignment="CENTER">
+                         <Button mnemonicParsing="false" fx:id="suppTour" text="" onAction="#suppTourButton">
                              <graphic>
-                                 <ImageView fx:id="b1" pickOnBounds="true" preserveRatio="true">
-                                     <image>
-                                         <Image url="@../image/villageoisTour.png" />
-                                     </image>
-                                 </ImageView>
-                             </graphic>
-                         </Button>
-                         <VBox>
-                             <Label text="Prix : 50" />
-                             <Label text="Degat : 5" />
-                         </VBox>
-                     </VBox>
-                     <VBox>
-                         <Button mnemonicParsing="false" text="" textOverrun="CLIP" fx:id="buttonAddDefense2" onAction="#ajoutDefense2">
-                             <graphic>
-                                 <ImageView fx:id="b2" pickOnBounds="true" preserveRatio="true">
-                                     <image>
-                                         <Image url="@../image/Sidon.png" />
-                                     </image>
-                                 </ImageView>
-                             </graphic>
-                         </Button>
-                         <VBox>
-                             <Label text="Prix : 100" />
-                             <Label text="Degat : 10" />
-                         </VBox>
-                     </VBox>
-                     <VBox>
-                         <Button mnemonicParsing="false" text="" textOverrun="CLIP" fx:id="buttonAddDefense3" onAction="#ajoutDefense3">
-                             <graphic>
-                                 <ImageView fx:id="b3" pickOnBounds="true" preserveRatio="true">
+                                 <ImageView fx:id="b4" pickOnBounds="true" preserveRatio="true">
                                      <image>
                                          <Image url="@../image/Link.png" />
                                      </image>
                                  </ImageView>
                              </graphic>
                          </Button>
-                         <VBox>
-                             <Label text="Prix : 150" />
-                             <Label text="Degat : 20" />
-                         </VBox>
                      </VBox>
                  </children>
-             </HBox>
+             </VBox>
 
          </VBox>
 
@@ -150,10 +168,9 @@
           </VBox>
           <VBox alignment="CENTER">
               <Separator prefHeight="20" />
-              <Label text="Règle du jeu :" style="-fx-padding: 0 0 15px 0;"/>
-              <TextArea fx:id="myTextArea2" wrapText="true" prefWidth="300" prefHeight="200" editable="false">
-                  écrire les regles ici
-              </TextArea>
+              <Label text="Instructions :" style="-fx-padding: 0 0 15px 0;" />
+              <Label text="" wrapText="true" fx:id="labelInstruction" prefWidth="210" maxWidth="210" textAlignment="CENTER"/>
+
           </VBox>
       </VBox>
    </right>
