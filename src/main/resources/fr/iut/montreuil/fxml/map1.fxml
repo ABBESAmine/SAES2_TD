@@ -96,6 +96,9 @@
                  <HBox>
                      <children>
                          <VBox>
+                             <padding>
+                                 <Insets right="10.0"/>
+                             </padding>
                              <Button mnemonicParsing="false" text="" textOverrun="CLIP" fx:id="buttonAddDefense1" onAction="#ajoutDefense1">
                                  <graphic>
                                      <ImageView fx:id="b1" pickOnBounds="true" preserveRatio="true">
@@ -105,12 +108,16 @@
                                      </ImageView>
                                  </graphic>
                              </Button>
-                             <VBox>
+                             <VBox alignment="CENTER">
+                                 <Label text="VILLAGEOIS" />
                                  <Label text="Prix : 50" />
                                  <Label text="Degat : 5" />
                              </VBox>
                          </VBox>
                          <VBox>
+                             <padding>
+                                 <Insets right="10.0"/>
+                             </padding>
                              <Button mnemonicParsing="false" text="" textOverrun="CLIP" fx:id="buttonAddDefense2" onAction="#ajoutDefense2">
                                  <graphic>
                                      <ImageView fx:id="b2" pickOnBounds="true" preserveRatio="true">
@@ -120,7 +127,8 @@
                                      </ImageView>
                                  </graphic>
                              </Button>
-                             <VBox>
+                             <VBox alignment="CENTER">
+                                 <Label text="SIDON" />
                                  <Label text="Prix : 100" />
                                  <Label text="Degat : 10" />
                              </VBox>
@@ -135,7 +143,8 @@
                                      </ImageView>
                                  </graphic>
                              </Button>
-                             <VBox>
+                             <VBox alignment="CENTER">
+                                 <Label text="LINK" />
                                  <Label text="Prix : 150" />
                                  <Label text="Degat : 20" />
                              </VBox>
@@ -158,18 +167,43 @@
              </VBox>
 
          </VBox>
-
           <VBox alignment="CENTER">
-              <Separator prefHeight="20" />
-              <Label text="Explication du jeu :" style="-fx-padding: 0 0 15px 0;"/>
-              <TextArea fx:id="myTextArea" wrapText="true" prefWidth="300" prefHeight="200" editable="false">
-                  Bienvenue dans le Tower Defense de ZELDA !! Dans ce jeu de tower defense basé sur l'univers de Zelda, vous devez défendre le royaume d'Hyrule. Placez stratégiquement le villageois, Sidon et Link, qui possèdent des compétences uniques, pour repousser les vagues d'ennemis. Utilisez leurs capacités spéciales pour protéger Hyrule des forces maléfiques.
-              </TextArea>
+              <Label text="Instructions :" style="-fx-padding: 30px0 0  0;" />
+              <Label text="Conseil de début : surveillez bien vos points de vie et votre monnaie en haut a droite de l'écran. Link n'est utilisable qu'à partir de la 5eme vague, prenez garde !" wrapText="true" fx:id="labelInstruction" prefWidth="210" maxWidth="210" prefHeight="150" textAlignment="CENTER"/>
           </VBox>
+
+
+          <Separator prefHeight="20" />
           <VBox alignment="CENTER">
-              <Separator prefHeight="20" />
-              <Label text="Instructions :" style="-fx-padding: 0 0 15px 0;" />
-              <Label text="" wrapText="true" fx:id="labelInstruction" prefWidth="210" maxWidth="210" textAlignment="CENTER"/>
+
+              <Label fx:id="monBouton" text="Description des ennemis :" />
+
+              <VBox fx:id="vboxPerso" style="-fx-padding: 0 0 15px 0;">
+                  <HBox style="-fx-border-color: black; -fx-border-width: 2px;" alignment="CENTER">
+                      <ImageView pickOnBounds="true" preserveRatio="true" fitWidth="55">
+                          <image>
+                              <Image url="@../image/monstre1.png" />
+                          </image>
+                      </ImageView>
+                      <Label maxWidth="150" prefHeight="80" wrapText="true" text="Les Mokoblins : ce sont les monstres les plus faibles et les plus lents. Ils infligent 10 points de dégats."  />
+                  </HBox>
+                  <HBox style="-fx-border-color: black; -fx-border-width: 2px;" alignment="CENTER">
+                      <ImageView pickOnBounds="true" preserveRatio="true" fitWidth="55">
+                          <image>
+                              <Image url="@../image/monstre2.png" />
+                          </image>
+                      </ImageView>
+                      <Label maxWidth="150" maxHeight="90" wrapText="true" text="Les Lézalfos : ce sont des monstres un peu plus forts et plus rapides. Ils infligent 15 points de dégats."  />
+                  </HBox>
+                  <HBox style="-fx-border-color: black; -fx-border-width: 2px;" alignment="CENTER">
+                      <ImageView pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../image/monstre3.png"/>
+                          </image>
+                      </ImageView>
+                      <Label maxWidth="150" maxHeight="90" wrapText="true" text="Ganon : ce sont les monstres les plus forts et plus rapides. Ils infligent 20 points de dégats."  />
+                  </HBox>
+              </VBox>
 
           </VBox>
       </VBox>

@@ -82,7 +82,7 @@ public class Controller implements Initializable {
     //FXML methodes :
     @FXML
     public void suppTourButton(ActionEvent actionEvent) {
-        labelInstruction.setText("Cliquer sur un allié  pour le supprimer !");
+        labelInstruction.setText("Cliquez sur un allié pour le supprimer !");
         bord.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -108,6 +108,10 @@ public class Controller implements Initializable {
     void pauseClique(ActionEvent event) {
         gameLoop.pause();
         startButton.setDisable(false);
+    }
+    @FXML
+    public void descPerso(ActionEvent actionEvent) {
+
     }
 
 
@@ -235,7 +239,7 @@ public class Controller implements Initializable {
 
     public void ajoutDefense() {
         System.out.println("Bouton cliqué !");
-        labelInstruction.setText("Cliquer à un endroit de la map pour poser un allié !!!\nAstuce : les allié ne " +
+        labelInstruction.setText("Cliquez à un endroit de la map pour poser un allié !!!\nAstuce : les alliés ne " +
                 "peuvent pas se poser sur le circuit ou les hautes herbes");
 
         // Récupère l'image de la défense

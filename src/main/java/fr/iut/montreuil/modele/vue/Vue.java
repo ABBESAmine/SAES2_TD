@@ -95,7 +95,7 @@ public class Vue {
                     break;
                 case 10:
                     try {
-                        img = new Image(Appli.class.getResource("image/grotte.png").openStream());
+                        img = new Image(Appli.class.getResource("image/chateau.png").openStream());
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
