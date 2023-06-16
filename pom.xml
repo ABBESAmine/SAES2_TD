@@ -48,11 +48,11 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.github.fengdai.compose</groupId>
             <artifactId>media</artifactId>
             <version>0.3.0</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>

@@ -261,7 +261,7 @@ public class Modele {
         FXMLLoader fxmlLoader = new FXMLLoader(Appli.class.getResource("fxml/victoire.fxml"));
 
 
-        Scene scene = null;
+        Scene scene;
         try {
             scene = new Scene(fxmlLoader.load(), 752, 423);
         } catch (IOException e) {
@@ -280,7 +280,7 @@ public class Modele {
         FXMLLoader fxmlLoader = new FXMLLoader(Appli.class.getResource("fxml/defaite.fxml"));
 
 
-        Scene scene = null;
+        Scene scene;
         try {
             scene = new Scene(fxmlLoader.load(), 752, 423);
         } catch (IOException e) {
