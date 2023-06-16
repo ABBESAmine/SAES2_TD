@@ -168,8 +168,8 @@
 
          </VBox>
           <VBox alignment="CENTER">
-              <Label text="Instructions :" style="-fx-padding: 30px0 0  0;" />
-              <Label text="Conseil de début : surveillez bien vos points de vie et votre monnaie en haut a droite de l'écran. Vous devez défendre le royaume pendant 10 vague, bon courage ! (PS: Link n'est utilisable qu'à partir de la 5eme vague, prenez garde !)" wrapText="true" fx:id="labelInstruction" prefWidth="210" maxWidth="210" prefHeight="150" textAlignment="CENTER"/>
+              <Label text="Instructions :" style="-fx-padding: 10px 0 0  0;" />
+              <Label text="Conseil de début : Premièrement, regardez souvent cette partie de l'écran, des instructions y apparaitrons à chaque action de votre part. Ensuite, surveillez bien vos points de vie et votre monnaie en haut a droite de l'écran. Vous devez défendre le royaume pendant 10 vague, bon courage ! (PS: Link n'est utilisable qu'à partir de la 5eme vague, prenez garde !)" wrapText="true" fx:id="labelInstruction" prefWidth="215" maxWidth="215" prefHeight="170" textAlignment="CENTER"/>
           </VBox>
 
 
