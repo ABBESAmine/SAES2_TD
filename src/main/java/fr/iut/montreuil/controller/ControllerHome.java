@@ -24,6 +24,9 @@ public class ControllerHome implements Initializable {
     @FXML
     private Button startButton;
 
+    @FXML
+    private VBox botVbox;
+
 
     private String musicFile;
     private Media sound;
@@ -31,10 +34,11 @@ public class ControllerHome implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        botVbox.getStyleClass().add("gradient-color");
 
-        String musicFile = "src/main/resources/fr/iut/montreuil/musique/homeMusique.mp3";
-        Media sound = new Media(new File(musicFile).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        musicFile = "src/main/resources/fr/iut/montreuil/musique/homeMusique.mp3";
+        sound = new Media(new File(musicFile).toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
 
 

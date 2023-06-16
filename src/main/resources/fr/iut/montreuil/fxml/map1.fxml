@@ -111,7 +111,7 @@
                              <VBox alignment="CENTER">
                                  <Label text="VILLAGEOIS" />
                                  <Label text="Prix : 50" />
-                                 <Label text="Degat : 5" />
+                                 <Label text="Degat : 3" />
                              </VBox>
                          </VBox>
                          <VBox>
@@ -130,7 +130,7 @@
                              <VBox alignment="CENTER">
                                  <Label text="SIDON" />
                                  <Label text="Prix : 100" />
-                                 <Label text="Degat : 10" />
+                                 <Label text="Degat : 7" />
                              </VBox>
                          </VBox>
                          <VBox>
@@ -146,7 +146,7 @@
                              <VBox alignment="CENTER">
                                  <Label text="LINK" />
                                  <Label text="Prix : 150" />
-                                 <Label text="Degat : 20" />
+                                 <Label text="Degat : 17" />
                              </VBox>
                          </VBox>
                      </children>

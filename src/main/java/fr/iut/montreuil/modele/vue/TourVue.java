@@ -51,7 +51,6 @@ public class TourVue {
     }
 
     public void supprimerSpriteTour(Tour i) {
-        System.out.println("test");
         this.bord.getChildren().remove(this.bord.lookup("#C"+ i.getId()));
         this.bord.getChildren().remove(this.bord.lookup("#"+ i.getImgId()));
     }
@@ -75,7 +74,6 @@ public class TourVue {
         listCercle.add(rayonPortee);
         rayonPortee.setId("C"+t.getId());
         bord.getChildren().add(rayonPortee);
-        System.out.println("Cercle numéro "+rayonPortee.getId());
     }
 
     public void supprimerSprite(ImageView imageShip) {

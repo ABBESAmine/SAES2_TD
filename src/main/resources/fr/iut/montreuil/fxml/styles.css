@@ -1,0 +1,8 @@
+.gradient-color {
+    -fx-background-color: linear-gradient(to right, #add8e6, #95ABFF);
+}
+
+.bold-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+}

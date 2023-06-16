@@ -14,7 +14,7 @@ public class Appli extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Appli.class.getResource("fxml/map2.fxml"));
 
 
-        Scene scene = new Scene(fxmlLoader.load(), 752, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 752, 489);
 
         stage.setTitle("Tower Defense");
         stage.setScene(scene);

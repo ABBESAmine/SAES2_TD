@@ -93,10 +93,8 @@ public class MonstreVue {
     }
 
     public void supprimerSpriteAct(Soldat i) {
-        System.out.println("test");
         this.bord.getChildren().remove(this.bord.lookup("#"+ i.getId()));
         this.pane.getChildren().remove(this.pane.lookup("#B"+ i.getId()));
-        System.out.println("#"+ i.getId());
     }
 
 }

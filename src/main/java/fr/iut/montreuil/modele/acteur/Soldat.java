@@ -72,7 +72,6 @@ public class Soldat {
         }
         else if (ram_map[xTile+((yTile-1)*20)] != 1 && ram_map[xTile+((yTile-1)*20)] != 9 && ram_map[xTile+((yTile-1)*20)] != 11
                 && ram_map[xTile+((yTile-1)*20)] != 12 && ram_map[xTile+((yTile-1)*20)] != 20 && ram_map[xTile+((yTile-1)*20)] != 21 && ram_map[xTile+((yTile-1)*20)] != 22 && previous != 3){
-            //sld.setX0(sld.getY0Value()-40);
             this.setY0(this.getY0Value()-40);
 
             previous = 2;

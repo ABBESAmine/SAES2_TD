@@ -62,6 +62,8 @@ public class Controller implements Initializable {
 
     @FXML
     private Pane centerPane;
+    @FXML
+    private Button pauseButton;
 
 
     //Autre variables :
@@ -101,9 +103,6 @@ public class Controller implements Initializable {
 
                 if(envi.dejaTour(mouseX.getValue(), mouseY.getValue()) != null){
                     envi.supprimeTour(envi.dejaTour(mouseX.getValue(), mouseY.getValue()));
-                } else {
-                    System.out.println("Pas de tour ici");
-                    System.out.println("X:"+mouseX.getValue()+" Y:"+mouseY.getValue());
                 }
                 suppTour.setDisable(false);
                 buttonAddDefense1.setDisable(false);
@@ -117,7 +116,6 @@ public class Controller implements Initializable {
     @FXML
     void startClique(ActionEvent event) {
         initAnimation();
-        envi.setDifficulte(envi.getDifficulte()+1);
         gameLoop.play();
         labelInstruction.setText("Défendez le royaume d'Hyrule !!");
     }
@@ -125,6 +123,7 @@ public class Controller implements Initializable {
     void pauseClique(ActionEvent event) {
         gameLoop.pause();
         startButton.setDisable(false);
+        pauseButton.setDisable(true);
     }
     @FXML
     public void descPerso(ActionEvent actionEvent) {
@@ -141,6 +140,7 @@ public class Controller implements Initializable {
 
 
         buttonAddDefense3.setDisable(true);
+        pauseButton.setDisable(true);
 
         monstreVue = new MonstreVue(bord, centerPane);
         tourVue = new TourVue(bord, centerPane);
@@ -198,18 +198,19 @@ public class Controller implements Initializable {
                 (ev ->{
                     temps++;
 
+                    pauseButton.setDisable(false);
 
                     if(envi.getDifficulte() >= 5){
                         buttonAddDefense3.setDisable(false);
                     }
                         envi.vague(temps);
                         startButton.setDisable(true);
-                        suppTour.setDisable(true);
+                        //suppTour.setDisable(true);
                         envi.verifSoldat();
                         envi.unTour(temps);
 
                         if(envi.ennemiEnVie() && temps > 10){
-                            System.out.println("plus d'ennemi");
+                            envi.setDifficulte(envi.getDifficulte()+1);
                             labelInstruction.setText("Préparez-vous pour la prochaine vague !");
                             if(envi.getDifficulte() == 10){
                                 envi.victoire(startButton);
@@ -223,6 +224,7 @@ public class Controller implements Initializable {
                             gameLoop.stop();
                             startButton.setDisable(false);
                             suppTour.setDisable(false);
+                            pauseButton.setDisable(true);
                         }
                 })
         );

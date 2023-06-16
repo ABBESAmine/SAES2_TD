@@ -20,13 +20,11 @@ public class ListObsEnnemis implements ListChangeListener<Soldat> {
         while (change.next()) {
             if (change.wasAdded()) {
                 for (Soldat e : change.getAddedSubList()) {
-                    System.out.println("add");
                     ennemisVue.creerSpriteAct(e);
                 }
             }
             if (change.wasRemoved()) {
                 for (Soldat e : change.getRemoved()) {
-                    System.out.println("supp");
                     ennemisVue.supprimerSpriteAct(e);
                 }
             }

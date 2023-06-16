@@ -23,14 +23,12 @@ public class ListObsTour implements ListChangeListener<Tour> {
         while (change.next()) {
             if (change.wasAdded()) {
                 for (Tour e : change.getAddedSubList()) {
-                    System.out.println("add list");
                     tourVue.ajouterSpriteTour(e.getType(), j, e.getImg());
                     tourVue.afficherRayonPortee(e);
                 }
             }
             if (change.wasRemoved()) {
                 for (Tour e : change.getRemoved()) {
-                    System.out.println("supp list 1");
                     tourVue.supprimerSpriteTour(e);
                 }
             }

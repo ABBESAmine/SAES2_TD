@@ -12,7 +12,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
-<BorderPane fx:id="bord" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.iut.montreuil.controller.ControllerHome">
+<BorderPane fx:id="bord" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.iut.montreuil.controller.ControllerHome" stylesheets="@styles.css">
    <center>
       <Pane prefHeight="752" prefWidth="423" BorderPane.alignment="CENTER" fx:id="pane2" >
             <VBox layoutX="75" layoutY="125" alignment="CENTER">
@@ -34,8 +34,8 @@
       </Pane>
    </center>
    <bottom>
-      <VBox style="-fx-padding: 0 0 15px 0;" >
-            <Label wrapText="true" style="-fx-text-alignment: center;" text="Bienvenue dans le Tower Defense de ZELDA !! Dans ce jeu de tower defense basé sur l'univers de Zelda, vous devez défendre le royaume d'Hyrule. Placez stratégiquement le villageois, Sidon et Link, qui possèdent chacun leurs propres statistiques, pour repousser les vagues d'ennemis. Attention a bien utiliser vos pièces d'or !">
+      <VBox style="-fx-padding: 0 0 15px 0;" fx:id="botVbox">
+            <Label styleClass="bold-label" wrapText="true" style="-fx-text-alignment: center;" text="Bienvenue dans le Tower Defense de ZELDA !! Dans ce jeu de tower defense basé sur l'univers de Zelda, vous devez défendre le royaume d'Hyrule. Placez stratégiquement le villageois, Sidon et Link, qui possèdent chacun leurs propres statistiques, pour repousser les vagues d'ennemis. Attention a bien utiliser vos pièces d'or !">
             </Label>
       </VBox>
    </bottom>

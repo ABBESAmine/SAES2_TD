@@ -41,7 +41,7 @@ public class Modele {
         ListActeurs = FXCollections.observableArrayList();
         ListTours = FXCollections.observableArrayList();
         listCercle = new ArrayList<>();
-        difficulte = new SimpleIntegerProperty(0);
+        difficulte = new SimpleIntegerProperty(1);
         this.j = j;
 
 
@@ -56,8 +56,8 @@ public class Modele {
                              1, 2, 9, 1, 1, 2, 1, 8, 2, 4, 1, 1, 1, 2, 1, 9, 2, 9, 1, 1,
                              1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 20, 21, 22, 2, 1, 1, 3, 4, 1, 1,
                              2, 5, 1, 1, 9, 2, 1, 2, 9, 2, 11, 10, 12, 2, 9, 1, 1, 2, 1, 9,
-                             1, 9, 1, 9, 1, 2, 1, 2, 1, 3, 2, 5, 1, 2, 1, 9, 1, 2, 1, 1,
-                             1, 1, 9, 1, 1, 2, 1, 2, 1, 9, 1, 1, 1, 2, 1, 1, 8, 5, 9, 1,
+                             1, 9, 1, 9, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 9, 1, 2, 1, 1,
+                             1, 1, 9, 1, 1, 2, 1, 2, 1, 3, 2, 5, 1, 2, 1, 1, 8, 5, 9, 1,
                              9, 1, 1, 1, 8, 5, 1, 2, 1, 1, 1, 1, 8, 5, 9, 1, 2, 1, 1, 1,
                              1, 9, 1, 8, 5, 1, 1, 2, 1, 9, 1, 8, 5, 1, 1, 1, 2, 1, 1, 9,
                              1, 1, 1, 2, 1, 1, 1, 3, 2, 2, 2, 5, 9, 1, 1, 1, 2, 9, 1, 9,
@@ -88,7 +88,7 @@ public class Modele {
 
     public void supprimeTour(Tour t){
         ListTours.remove(t);
-        j.setArgent(j.getArgent()+(50*t.getType()));
+        j.setArgent(j.getArgent()+(50*t.getType())-10);
     }
 
 
@@ -99,7 +99,6 @@ public class Modele {
 
         if (ListActeurs != null){
             for(int i = 0;i<ListActeurs.size();i++){
-                //System.out.println(i);
                 act = ListActeurs.get(i);
                 if (tmp%act.getVitesse() == 0){
                     act.seDeplace();
@@ -107,20 +106,17 @@ public class Modele {
                 if (ListTours != null && ListActeurs != null) {
                     for (int c = 0; c < ListTours.size(); c++) {
                         t = ListTours.get(c);
-                        System.out.println(t.getId());
 
                         for (int y = 0; y < ListActeurs.size(); y++) {
                             act = ListActeurs.get(y);
 
                             if (t.ennemiPortee(act) && tmp % 4 == 0) {
-                                System.out.println(t.getId() + " attaque " + act.getId());
-                                act.setPointsDeVieValue(act.getPointsDeVieValue() - t.getDegat());
-
                                 if (act.getPointsDeVieValue() <= 0) {
                                     j.gagneArgent(act.getValeur());
                                     ListActeurs.remove(act);
                                     y--; // Décrémente l'index pour compenser la suppression de l'élément
                                 }
+                                act.setPointsDeVieValue(act.getPointsDeVieValue() - t.getDegat());
                                 break;
                             }
                         }
@@ -136,11 +132,9 @@ public class Modele {
 
         if (ListActeurs != null){
             for(int i = 0;i<ListActeurs.size();i++){
-                //System.out.println(i);
                 act = ListActeurs.get(i);
                 if (act.getTileValue() == 10){
                     j.subitDegat(ListActeurs.get(i).getValeur());
-                    System.out.println("PV fin : "+ListActeurs.get(i).getPointsDeVieValue());
                     ListActeurs.remove(ListActeurs.get(i));
                 }
             }
@@ -215,7 +209,6 @@ public class Modele {
                 if ((x > t.getX()-25 && x < t.getX()+25) && (y > t.getY()-25 && y < t.getY()+25)){
                     return t;
                 }
-                System.out.println("X:"+t.getX()+" Y:"+t.getY());
             }
         }else {
             return null;
