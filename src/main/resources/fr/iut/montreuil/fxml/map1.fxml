@@ -201,7 +201,7 @@
                               <Image url="@../image/monstre3.png"/>
                           </image>
                       </ImageView>
-                      <Label maxWidth="150" maxHeight="90" wrapText="true" text="Ganon : ce sont les monstres les plus forts et plus rapides. Ils infligent 20 points de dégats."  />
+                      <Label maxWidth="150" maxHeight="90" wrapText="true" text="Ganon : ce sont les monstres les plus forts et les plus rapides. Ils infligent 20 points de dégats."  />
                   </HBox>
               </VBox>
 
