@@ -210,11 +210,11 @@ public class Controller implements Initializable {
                         envi.unTour(temps);
 
                         if(envi.ennemiEnVie() && temps > 10){
-                            envi.setDifficulte(envi.getDifficulte()+1);
                             labelInstruction.setText("Préparez-vous pour la prochaine vague !");
                             if(envi.getDifficulte() == 10){
                                 envi.victoire(startButton);
                             }
+                            envi.setDifficulte(envi.getDifficulte()+1);
 
                             if(j.getPv() <=0){
                                 envi.defaite(startButton);
