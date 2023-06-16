@@ -225,6 +225,7 @@ public class Controller implements Initializable {
                             startButton.setDisable(false);
                             suppTour.setDisable(false);
                             pauseButton.setDisable(true);
+                            j.setArgent(j.getArgent()+100);
                         }
                 })
         );
