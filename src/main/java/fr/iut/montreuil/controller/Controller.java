@@ -145,7 +145,7 @@ public class Controller implements Initializable {
         monstreVue = new MonstreVue(bord, centerPane);
         tourVue = new TourVue(bord, centerPane);
 
-        this.envi = new Modele(bord, j);
+        this.envi = new Modele(bord, j, tourVue);
         listen1 = new ListObsEnnemis(monstreVue);
         listen2 = new ListObsTour(tourVue, j);
         envi.listenAct(listen1);

@@ -5,6 +5,7 @@ import fr.iut.montreuil.Appli;
 import fr.iut.montreuil.ListObsTour;
 import fr.iut.montreuil.modele.acteur.Soldat;
 import fr.iut.montreuil.ListObsEnnemis;
+import fr.iut.montreuil.modele.vue.TourVue;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
@@ -35,9 +36,12 @@ public class Modele {
 
     private int[] tab;
 
+    TourVue tourVue;
 
 
-    public Modele(BorderPane bord, Joueur j){
+
+    public Modele(BorderPane bord, Joueur j, TourVue tourVue){
+        this.tourVue = tourVue;
         ListActeurs = FXCollections.observableArrayList();
         ListTours = FXCollections.observableArrayList();
         listCercle = new ArrayList<>();
@@ -117,6 +121,7 @@ public class Modele {
                                     y--; // Décrémente l'index pour compenser la suppression de l'élément
                                 }
                                 act.setPointsDeVieValue(act.getPointsDeVieValue() - t.getDegat());
+                                tourVue.afficherProj(t.getX(), t.getY(), act.getX0Value(), act.getY0Value(), t.getType());
                                 break;
                             }
                         }

@@ -2,6 +2,7 @@ package fr.iut.montreuil.modele.vue;
 
 import fr.iut.montreuil.modele.Joueur;
 import fr.iut.montreuil.modele.acteur.Tour;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.DropShadow;
@@ -12,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 
@@ -25,7 +27,6 @@ public class TourVue {
 
     private Pane pane;
 
-    private static int compteur = 0;
     public TourVue(BorderPane bord, Pane p){
         this.bord = bord;
         this.pane = p;
@@ -74,6 +75,28 @@ public class TourVue {
         listCercle.add(rayonPortee);
         rayonPortee.setId("C"+t.getId());
         bord.getChildren().add(rayonPortee);
+    }
+
+    public void afficherProj(int xD, int yD, int xA, int yA, int type){
+        Circle cercle = new Circle(xD, yD, 5); // Crée un cercle avec un rayon de 10
+        if(type ==1){
+            cercle.setFill(Color.GRAY);
+        } else if (type==2) {
+            cercle.setFill(Color.RED);
+        }else{
+            cercle.setFill(Color.BLUE);
+        }
+        pane.getChildren().add(cercle); // Ajoute le cercle au pane
+
+        // Animation pour déplacer le cercle
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(0.2), cercle);
+        transition.setByX(xA - xD); // Déplacement horizontal
+        transition.setByY(yA - yD); // Déplacement vertical
+
+        // Supprimer le cercle une fois l'animation terminée
+        transition.setOnFinished(event -> pane.getChildren().remove(cercle));
+
+        transition.play();
     }
 
     public void supprimerSprite(ImageView imageShip) {
