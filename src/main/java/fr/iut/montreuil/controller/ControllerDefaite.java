@@ -35,12 +35,11 @@ public class ControllerDefaite implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        musicFile = "C:\\Users\\Amine\\IdeaProjects\\demo\\src\\main\\resources\\fr\\iut\\montreuil\\musique\\looseMusique.mp3";
-
-        // Création de l'objet Media avec le chemin du fichier audio
-        sound = new Media(new File(musicFile).toURI().toString());
-        mediaPlayer = new MediaPlayer(sound);
+        String musicFile = "src/main/resources/fr/iut/montreuil/musique/looseMusique.mp3";
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
+
 
         Image img;
         try {
