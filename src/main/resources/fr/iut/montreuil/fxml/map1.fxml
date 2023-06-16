@@ -54,7 +54,7 @@
                   </HBox>
                   <HBox>
                       <children>
-                          <Label text="Difficulté : " />
+                          <Label text="Difficulté/Vague : " />
                           <Label fx:id="labelDiff" />
                       </children>
                   </HBox>
@@ -169,7 +169,7 @@
          </VBox>
           <VBox alignment="CENTER">
               <Label text="Instructions :" style="-fx-padding: 30px0 0  0;" />
-              <Label text="Conseil de début : surveillez bien vos points de vie et votre monnaie en haut a droite de l'écran. Link n'est utilisable qu'à partir de la 5eme vague, prenez garde !" wrapText="true" fx:id="labelInstruction" prefWidth="210" maxWidth="210" prefHeight="150" textAlignment="CENTER"/>
+              <Label text="Conseil de début : surveillez bien vos points de vie et votre monnaie en haut a droite de l'écran. Vous devez défendre le royaume pendant 10 vague, bon courage ! (PS: Link n'est utilisable qu'à partir de la 5eme vague, prenez garde !)" wrapText="true" fx:id="labelInstruction" prefWidth="210" maxWidth="210" prefHeight="150" textAlignment="CENTER"/>
           </VBox>
 
 

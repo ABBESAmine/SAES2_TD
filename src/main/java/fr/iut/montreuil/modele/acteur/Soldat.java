@@ -65,21 +65,25 @@ public class Soldat {
         int xTile = xSprite/40;
         int yTile = ySprite/40;
 
-        if (ram_map[xTile+1+(yTile*20)] != 1 && ram_map[xTile+1+(yTile*20)] != 9 && previous != 4){
+        if (ram_map[xTile+1+(yTile*20)] != 1 && ram_map[xTile+1+(yTile*20)] != 9 && ram_map[xTile+1+(yTile*20)] != 11
+                && ram_map[xTile+1+(yTile*20)] != 12 && ram_map[xTile+1+(yTile*20)] != 20 && ram_map[xTile+1+(yTile*20)] != 21 && ram_map[xTile+1+(yTile*20)] != 22  && previous != 4){
             this.setX0(this.getX0Value()+40);
             previous = 1;
         }
-        else if (ram_map[xTile+((yTile-1)*20)] != 1 && ram_map[xTile+((yTile-1)*20)] != 9 && previous != 3){
+        else if (ram_map[xTile+((yTile-1)*20)] != 1 && ram_map[xTile+((yTile-1)*20)] != 9 && ram_map[xTile+((yTile-1)*20)] != 11
+                && ram_map[xTile+((yTile-1)*20)] != 12 && ram_map[xTile+((yTile-1)*20)] != 20 && ram_map[xTile+((yTile-1)*20)] != 21 && ram_map[xTile+((yTile-1)*20)] != 22 && previous != 3){
             //sld.setX0(sld.getY0Value()-40);
             this.setY0(this.getY0Value()-40);
 
             previous = 2;
         }
-        else if (ram_map[xTile+((yTile+1)*20)] != 1 && ram_map[xTile+((yTile+1)*20)] != 9 && previous != 2){
+        else if (ram_map[xTile+((yTile+1)*20)] != 1 && ram_map[xTile+((yTile+1)*20)] != 9 && ram_map[xTile+((yTile+1)*20)] != 11
+                && ram_map[xTile+((yTile+1)*20)] != 12 && ram_map[xTile+((yTile+1)*20)] != 20 && ram_map[xTile+((yTile+1)*20)] != 21 && ram_map[xTile+((yTile+1)*20)] != 22 && previous != 2){
             this.setY0(this.getY0Value()+40);
             previous = 3;
         }
-        else if (ram_map[xTile-1+(yTile*20)] != 1 && ram_map[xTile-1+(yTile*20)] != 9 && previous != 1){
+        else if (ram_map[xTile-1+(yTile*20)] != 1 && ram_map[xTile-1+(yTile*20)] != 9 && ram_map[xTile-1+(yTile*20)] != 11
+                && ram_map[xTile-1+(yTile*20)] != 12 && ram_map[xTile-1+(yTile*20)] != 20 && ram_map[xTile-1+(yTile*20)] != 21 && ram_map[xTile-1+(yTile*20)] != 22 && previous != 1){
             this.setX0(this.getX0Value()-40);
             previous = 4;
         }

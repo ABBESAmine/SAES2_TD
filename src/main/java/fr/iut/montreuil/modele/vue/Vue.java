@@ -95,7 +95,42 @@ public class Vue {
                     break;
                 case 10:
                     try {
-                        img = new Image(Appli.class.getResource("image/chateau.png").openStream());
+                        img = new Image(Appli.class.getResource("image/11.png").openStream());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    break;
+                case 11:
+                    try {
+                        img = new Image(Appli.class.getResource("image/01.png").openStream());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    break;
+                case 12:
+                    try {
+                        img = new Image(Appli.class.getResource("image/21.png").openStream());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    break;
+                case 20:
+                    try {
+                        img = new Image(Appli.class.getResource("image/00.png").openStream());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    break;
+                case 21:
+                    try {
+                        img = new Image(Appli.class.getResource("image/10.png").openStream());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    break;
+                case 22:
+                    try {
+                        img = new Image(Appli.class.getResource("image/20.png").openStream());
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
