@@ -96,7 +96,7 @@ public class Controller implements Initializable {
         if(envi.getDifficulte() >=5){
             buttonAddDefense3.setDisable(true);
         }
-        labelInstruction.setText("Cliquez sur un allié pour le supprimer !");
+        labelInstruction.setText("Cliquez sur un allié pour le supprimer ! Cela vous permet de gagner 40, 90 ou 140 pièces d'or en fonction de quel allié vous supprimez");
         bord.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -210,7 +210,7 @@ public class Controller implements Initializable {
                         envi.unTour(temps);
 
                         if(envi.ennemiEnVie() && temps > 10){
-                            labelInstruction.setText("Préparez-vous pour la prochaine vague !");
+                            labelInstruction.setText("Vous venez de gagner 100 pièces d'or !! Préparez-vous pour la prochaine vague.");
                             if(envi.getDifficulte() == 10){
                                 envi.victoire(startButton);
                             }

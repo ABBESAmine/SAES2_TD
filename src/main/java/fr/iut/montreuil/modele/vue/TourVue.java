@@ -78,7 +78,7 @@ public class TourVue {
     }
 
     public void afficherProj(int xD, int yD, int xA, int yA, int type){
-        Circle cercle = new Circle(xD, yD, 5); // Crée un cercle avec un rayon de 10
+        Circle cercle = new Circle(xD+25, yD+25, 5); // Crée un cercle avec un rayon de 5
         if(type ==1){
             cercle.setFill(Color.GRAY);
         } else if (type==2) {
