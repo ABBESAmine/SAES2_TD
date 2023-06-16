@@ -8,6 +8,7 @@ import fr.iut.montreuil.ListObsEnnemis;
 import fr.iut.montreuil.ListObsTour;
 import fr.iut.montreuil.modele.Modele;
 import fr.iut.montreuil.modele.vue.MonstreVue;
+import fr.iut.montreuil.modele.vue.TourVue;
 import fr.iut.montreuil.modele.vue.Vue;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -43,6 +44,10 @@ public class Controller implements Initializable {
     @FXML
     private Button buttonAddDefense3;
     @FXML
+    private Button buttonAddDefense1;
+    @FXML
+    private Button buttonAddDefense2;
+    @FXML
     private Button suppTour;
     @FXML
     private BorderPane bord;
@@ -65,6 +70,7 @@ public class Controller implements Initializable {
     private int tourDejaPose = 0;
     private Timeline gameLoop;
     private MonstreVue monstreVue;
+    private TourVue tourVue;
     private int temps = 0;
     private int valButtonDef;
     private Modele envi;
@@ -82,6 +88,12 @@ public class Controller implements Initializable {
     //FXML methodes :
     @FXML
     public void suppTourButton(ActionEvent actionEvent) {
+        suppTour.setDisable(true);
+        buttonAddDefense1.setDisable(true);
+        buttonAddDefense2.setDisable(true);
+        if(envi.getDifficulte() >=5){
+            buttonAddDefense3.setDisable(true);
+        }
         labelInstruction.setText("Cliquez sur un allié pour le supprimer !");
         bord.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -93,7 +105,12 @@ public class Controller implements Initializable {
                     System.out.println("Pas de tour ici");
                     System.out.println("X:"+mouseX.getValue()+" Y:"+mouseY.getValue());
                 }
-
+                suppTour.setDisable(false);
+                buttonAddDefense1.setDisable(false);
+                buttonAddDefense2.setDisable(false);
+                if(envi.getDifficulte() >=5){
+                    buttonAddDefense3.setDisable(false);
+                }
             }
         });
     }
@@ -126,9 +143,11 @@ public class Controller implements Initializable {
         buttonAddDefense3.setDisable(true);
 
         monstreVue = new MonstreVue(bord, centerPane);
-        this.envi = new Modele(bord, j, centerPane);
+        tourVue = new TourVue(bord, centerPane);
+
+        this.envi = new Modele(bord, j);
         listen1 = new ListObsEnnemis(monstreVue);
-        listen2 = new ListObsTour(monstreVue);
+        listen2 = new ListObsTour(tourVue, j);
         envi.listenAct(listen1);
         envi.listenTour(listen2);
 
@@ -214,6 +233,7 @@ public class Controller implements Initializable {
 
     public void ajoutDefense1(ActionEvent actionEvent) {
         if(j.getArgent() >= 50){
+            buttonAddDefense1.setDisable(true);
             valButtonDef = 1;
             this.ajoutDefense();
         }
@@ -222,6 +242,7 @@ public class Controller implements Initializable {
 
     public void ajoutDefense2(ActionEvent actionEvent) {
         if(j.getArgent() >= 100){
+            buttonAddDefense2.setDisable(true);
             valButtonDef = 2;
             this.ajoutDefense();
         }
@@ -229,6 +250,7 @@ public class Controller implements Initializable {
 
     public void ajoutDefense3(ActionEvent actionEvent) {
         if(j.getArgent() >= 150){
+            buttonAddDefense3.setDisable(true);
             valButtonDef = 3;
             this.ajoutDefense();
         }
@@ -238,7 +260,7 @@ public class Controller implements Initializable {
 
 
     public void ajoutDefense() {
-        System.out.println("Bouton cliqué !");
+        suppTour.setDisable(true);
         labelInstruction.setText("Cliquez à un endroit de la map pour poser un allié !!!\nAstuce : les alliés ne " +
                 "peuvent pas se poser sur le circuit ou les hautes herbes");
 
@@ -265,11 +287,9 @@ public class Controller implements Initializable {
         imageShip.xProperty().bind(mouseX);
         imageShip.yProperty().bind(mouseY);
 
-        double x = mouseX.getValue();
-        double y = mouseY.getValue();
 
         // Ajout de la défense dans la pane
-        bord.getChildren().add(imageShip);
+        tourVue.preAffichageSpriteTour(imageShip);
 
 
 
@@ -278,32 +298,27 @@ public class Controller implements Initializable {
             @Override
             public void handle(MouseEvent mouseEvent) {
 
-                if(envi.getTileValue(imageShip.getX()+25, imageShip.getY()+25) == 1
-                        && envi.dejaTour(imageShip.getX(), imageShip.getY()) == null){
-                    if (type ==1){
-                        j.setArgent(j.getArgent()-50);
-                    }else if (type ==2){
-                        j.setArgent(j.getArgent()-100);
-                    }else if (type ==3){
-                        j.setArgent(j.getArgent()-160);
-                    }
-
-
-                    imageShip.xProperty().unbind();
-                    imageShip.yProperty().unbind();
-
+                if(envi.getTileValue(imageShip.getX()+25, imageShip.getY()+25) == 1 && envi.dejaTour(imageShip.getX(), imageShip.getY()) == null){
                     Tour t1= new Tour((int)imageShip.getX(), (int)imageShip.getY(), bord, envi, type, imageShip);
-                    System.out.println(mouseX.getValue()+" "+mouseY.getValue());
-
                     envi.ajouterTour(t1);
-                    envi.afficherRayonPortee(t1);
-
-                    System.out.println(envi.getTileValue(t1.getX(), t1.getY()));
                     tourDejaPose =1;
+                    suppTour.setDisable(false);
+                    buttonAddDefense1.setDisable(false);
+                    buttonAddDefense2.setDisable(false);
+                    if(envi.getDifficulte() >=5){
+                        buttonAddDefense3.setDisable(false);
+                    }
                 }
                 else if(tourDejaPose ==0){
-                    bord.getChildren().remove(imageShip);
+                    tourVue.supprimerSprite(imageShip);
+                    suppTour.setDisable(false);
+                    buttonAddDefense1.setDisable(false);
+                    buttonAddDefense2.setDisable(false);
+                    if(envi.getDifficulte() >=5){
+                        buttonAddDefense3.setDisable(false);
+                    }
                 }
+
             }
         });
     }

@@ -1,17 +1,21 @@
 package fr.iut.montreuil;
 
+import fr.iut.montreuil.modele.Joueur;
 import fr.iut.montreuil.modele.acteur.Tour;
 import fr.iut.montreuil.modele.vue.MonstreVue;
+import fr.iut.montreuil.modele.vue.TourVue;
 import javafx.collections.ListChangeListener;
 
 
 public class ListObsTour implements ListChangeListener<Tour> {
 
 
-    private MonstreVue ennemisVue;
+    private Joueur j;
+    private TourVue tourVue;
 
-    public ListObsTour(MonstreVue mVue) {
-        this.ennemisVue = mVue;
+    public ListObsTour(TourVue mVue, Joueur joueur) {
+        this.j = joueur;
+        this.tourVue = mVue;
     }
 
     @Override
@@ -20,12 +24,14 @@ public class ListObsTour implements ListChangeListener<Tour> {
             if (change.wasAdded()) {
                 for (Tour e : change.getAddedSubList()) {
                     System.out.println("add list");
+                    tourVue.ajouterSpriteTour(e.getType(), j, e.getImg());
+                    tourVue.afficherRayonPortee(e);
                 }
             }
             if (change.wasRemoved()) {
                 for (Tour e : change.getRemoved()) {
                     System.out.println("supp list 1");
-                    ennemisVue.supprimerSpriteTour(e);
+                    tourVue.supprimerSpriteTour(e);
                 }
             }
         }

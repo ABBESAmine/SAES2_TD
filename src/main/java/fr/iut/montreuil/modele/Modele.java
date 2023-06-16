@@ -31,23 +31,16 @@ public class Modele {
 
     private IntegerProperty difficulte;
 
-
-
-    private BorderPane bord;
-    private Pane pane;
-
     private Joueur j;
 
     private int[] tab;
 
-    private static int compteur = 0;
 
-    public Modele(BorderPane bord, Joueur j, Pane p){
+
+    public Modele(BorderPane bord, Joueur j){
         ListActeurs = FXCollections.observableArrayList();
         ListTours = FXCollections.observableArrayList();
         listCercle = new ArrayList<>();
-        this.bord = bord;
-        this.pane = p;
         difficulte = new SimpleIntegerProperty(0);
         this.j = j;
 
@@ -79,6 +72,7 @@ public class Modele {
     }
 
 
+
     public int[] genererTableauMap(){
         return this.tab;
     }
@@ -90,6 +84,7 @@ public class Modele {
     public void ajouterTour(Tour t){
         ListTours.add(t);
     }
+
 
     public void supprimeTour(Tour t){
         ListTours.remove(t);
@@ -229,30 +224,7 @@ public class Modele {
         return null;
     }
 
-    public void afficherRayonPortee(Tour t) {
-        Circle rayonPortee = new Circle();
-        double centerX = t.getX()+25;
-        double centerY = t.getY()+25;
 
-        rayonPortee.setCenterX(centerX);
-        rayonPortee.setCenterY(centerY);
-        rayonPortee.setRadius(t.getPortee());
-        rayonPortee.setFill(null); // Aucun remplissage
-        rayonPortee.setStroke(Color.rgb(255, 177, 6));
-        rayonPortee.setStrokeWidth(2.0);
-        rayonPortee.setId(t.getId());
-
-        DropShadow dropShadow = new DropShadow(10, Color.rgb(0, 0, 0, 1));
-        rayonPortee.setEffect(dropShadow);
-
-
-        listCercle.add(rayonPortee);
-        listCercle.get(compteur).setId("C"+t.getId());
-        bord.getChildren().add(rayonPortee);
-        bord.getChildren().get(compteur).setId(t.getId());
-        System.out.println("Cercle numéro "+rayonPortee.getId());
-        compteur++;
-    }
 
 
     public void victoire(Button button){

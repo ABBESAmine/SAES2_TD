@@ -31,9 +31,6 @@ public class MonstreVue {
     private BorderPane bord;
 
     private Pane pane;
-    private int[] tab;
-
-    private Modele envi;
 
 
 
@@ -84,9 +81,9 @@ public class MonstreVue {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 double progress = newValue.doubleValue() / ennemi.getPointsDeVieInit();
-                if(newValue.doubleValue() / ennemi.getPointsDeVieInit() < 0.6 && newValue.doubleValue() / ennemi.getPointsDeVieInit() > 0.3)
+                if(newValue.doubleValue() / ennemi.getPointsDeVieInit() < 0.7 && newValue.doubleValue() / ennemi.getPointsDeVieInit() > 0.4)
                     progressBar.setStyle("-fx-accent: orange;");
-                else if(newValue.doubleValue() / ennemi.getPointsDeVieInit() < 0.3)
+                else if(newValue.doubleValue() / ennemi.getPointsDeVieInit() <= 0.4)
                     progressBar.setStyle("-fx-accent: red;");
                 progressBar.setProgress(progress);
             }
@@ -101,16 +98,5 @@ public class MonstreVue {
         this.pane.getChildren().remove(this.pane.lookup("#B"+ i.getId()));
         System.out.println("#"+ i.getId());
     }
-
-    public void supprimerSpriteTour(Tour i) {
-        System.out.println("test");
-        this.bord.getChildren().remove(this.bord.lookup("#C"+ i.getId()));
-        this.bord.getChildren().remove(this.bord.lookup("#"+ i.getImgId()));
-    }
-
-
-
-
-
 
 }

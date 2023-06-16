@@ -28,15 +28,15 @@ public  class Tour {
         if (type == 1){
             this.prix = 100;
             this.portee = 100;
-            this.degat = 5;
+            this.degat = 3;
         } else if (type == 2){
             this.prix = 150;
             this.portee = 100;
-            this.degat = 10;
+            this.degat = 7;
         }else{
             this.prix = 250;
             this.portee = 150;
-            this.degat = 20;
+            this.degat = 17;
         }
 
         this.x = x;
@@ -80,6 +80,9 @@ public  class Tour {
         return this.id;
     }
 
+    public ImageView getImg() {
+        return img;
+    }
 
     public boolean ennemiPortee(Soldat ennemi) {
         double distance = Math.sqrt(Math.pow(ennemi.getX0Value() - getX(), 2) + Math.pow(ennemi.getY0Value() - getY(), 2));
