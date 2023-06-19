@@ -302,7 +302,7 @@ public class Controller implements Initializable {
             public void handle(MouseEvent mouseEvent) {
 
                 if(envi.getTileValue(imageShip.getX()+25, imageShip.getY()+25) == 1 && envi.dejaTour(imageShip.getX(), imageShip.getY()) == null){
-                    Tour t1= new Tour((int)imageShip.getX(), (int)imageShip.getY(), bord, envi, type, imageShip);
+                    Tour t1= new Tour((int)imageShip.getX(), (int)imageShip.getY(), bord, type, imageShip);
                     envi.ajouterTour(t1);
                     tourDejaPose =1;
                     suppTour.setDisable(false);

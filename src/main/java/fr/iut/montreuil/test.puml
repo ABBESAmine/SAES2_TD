@@ -1,0 +1,73 @@
+@startuml
+
+
+
+
+    class Modele {
+        - ListActeurs: ObservableList<Soldat>
+        - ListTours: ObservableList<Tour>
+        - listCercle: ArrayList<Circle>
+        - difficulte: IntegerProperty
+        - j: Joueur
+        - tab: int[]
+        - tourVue: TourVue
+
+        + Modele(bord: BorderPane, j: Joueur, tourVue: TourVue)
+        + genererTableauMap(): int[]
+        + ajouterActeur(a: Soldat): void
+        + ajouterTour(t: Tour): void
+        + supprimeTour(t: Tour): void
+        + unTour(tmp: int): void
+        + verifSoldat(): void
+        + ennemiEnVie(): boolean
+        + vague(temps: int): void
+        + listenAct(l: ListObsEnnemis): void
+        + listenTour(l: ListObsTour): void
+        + dejaTour(x: double, y: double): Tour
+        + victoire(button: Button): void
+        + defaite(button: Button): void
+    }
+Modele --> Joueur
+Modele --> TourVue
+    class Joueur {
+      - argent: IntegerProperty
+      - pv: IntegerProperty
+      + Joueur()
+      + subitDegat(val: int): void
+      + gagneArgent(val: int): void
+    }
+
+class Tour {
+  - x: int
+  - y: int
+  - bord: BorderPane
+  - prix: int
+  - portee: int
+  - degat: int
+  - id: String
+  - compteur: int
+  - type: int
+  - img: ImageView
+  + Tour(x: int, y: int, bord: BorderPane, env: Modele, type: int, img: ImageView)
+  + ennemiPortee(ennemi: Soldat): boolean
+}
+
+class Soldat {
+  - X0: IntegerProperty
+  - Y0: IntegerProperty
+  - pointsDeVie: IntegerProperty
+  - pointsDeVieInit: int
+  - vitesse: int
+  - id: String
+  - env: Modele
+  - compteur: int
+  - ram_map: int[]
+  - previous: int
+  - valeur: int
+  + Soldat(x0: int, y0: int, envi: Modele, valeur: int)
+  + seDeplace(): void
+}
+
+
+
+@enduml

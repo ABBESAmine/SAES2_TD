@@ -28,7 +28,7 @@ public class Modele {
     //Lists
     private ObservableList<Soldat> ListActeurs;
     private ObservableList<Tour> ListTours;
-    private ArrayList<Circle> listCercle;
+
 
     private IntegerProperty difficulte;
 
@@ -36,7 +36,7 @@ public class Modele {
 
     private int[] tab;
 
-    TourVue tourVue;
+    private TourVue tourVue;
 
 
 
@@ -44,7 +44,6 @@ public class Modele {
         this.tourVue = tourVue;
         ListActeurs = FXCollections.observableArrayList();
         ListTours = FXCollections.observableArrayList();
-        listCercle = new ArrayList<>();
         difficulte = new SimpleIntegerProperty(1);
         this.j = j;
 
@@ -204,6 +203,13 @@ public class Modele {
         this.difficulte.setValue(difficulte);
     }
 
+    public ObservableList<Soldat> getListActeurs() {
+        return ListActeurs;
+    }
+
+    public ObservableList<Tour> getListTours() {
+        return ListTours;
+    }
 
     public Tour dejaTour(double x, double y){
         Tour t;

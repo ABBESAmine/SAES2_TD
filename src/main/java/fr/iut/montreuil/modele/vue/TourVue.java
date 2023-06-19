@@ -18,8 +18,6 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 
 public class TourVue {
-    @FXML
-    private TilePane tilemap;
 
     private ArrayList<Circle> listCercle;
 

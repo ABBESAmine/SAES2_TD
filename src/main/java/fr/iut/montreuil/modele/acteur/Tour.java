@@ -14,7 +14,6 @@ public  class Tour {
     private int prix;
     private int portee;
     private int degat;
-    private Modele env;
 
     private String id;
     private static int compteur=0;
@@ -23,7 +22,7 @@ public  class Tour {
 
     private ImageView img;
 
-    public Tour(int x, int y, BorderPane bord, Modele env, int type, ImageView img) {
+    public Tour(int x, int y, BorderPane bord, int type, ImageView img) {
         this.type = type;
         if (type == 1){
             this.prix = 100;
@@ -42,7 +41,6 @@ public  class Tour {
         this.x = x;
         this.y = y;
         this.bord = bord;
-        this.env = env;
 
 
 
